@@ -37,4 +37,4 @@ allow postgres to listen to all connections:
 
 ###### Dump into postgres
 
-    psql -U \<user name\> -h \<IP Addr\> \<database name\> < \<file name\>
+    psql -U \[user name\] -h \[ip addr\] \[database name\] < \[file name\]
