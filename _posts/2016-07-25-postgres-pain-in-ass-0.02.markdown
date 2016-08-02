@@ -34,3 +34,7 @@ sudo /etc/init.d/nginx restart
 ###### Restart postgres
 
 sudo /etc/init.d/postgresql reload
+
+###### Dump into postgres
+
+psql -U <user name> -h <IP Addr> <database name> < <file name>
