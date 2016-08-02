@@ -19,22 +19,22 @@ allow postgres to listen to all connections:
 
 ###### Open up remote access
 
-sudo nano /etc/postgresql/9.5/main/pg_hba.conf
+    sudo nano /etc/postgresql/9.5/main/pg_hba.conf
 
-  host    all             all             all                     md5
+    host    all             all             all                     md5
 
-sudo nano /etc/postgresql/9.5/main/postgresql.conf
+    sudo nano /etc/postgresql/9.5/main/postgresql.conf
 
-  listen_addresses='*'
+    listen_addresses='*'
 
 ###### Restart nginx
 
-sudo /etc/init.d/nginx restart
+    sudo /etc/init.d/nginx restart
 
 ###### Restart postgres
 
-sudo /etc/init.d/postgresql reload
+    sudo /etc/init.d/postgresql reload
 
 ###### Dump into postgres
 
-psql -U \<user name\> -h \<IP Addr\> \<database name\> < \<file name\>
+    psql -U \<user name\> -h \<IP Addr\> \<database name\> < \<file name\>
