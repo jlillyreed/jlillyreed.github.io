@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Your awesome title</title>
+    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</description>
+    <link>http://yourdomain.com/</link>
+    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 03 Aug 2016 09:41:42 -0500</pubDate>
+    <lastBuildDate>Wed, 03 Aug 2016 09:41:42 -0500</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Vagrant PostgreSQL Drupal</title>
+        <description>&lt;h2 id=&quot;oh-postgresql-what-a-pain-in-the-ass-you-are&quot;&gt;Oh PostgreSQL, what a pain in the ass you are&lt;/h2&gt;
+&lt;p&gt;#### 0.02&lt;/p&gt;
+
+&lt;p&gt;using vaprobash, uncomment nginx &amp;amp; postgresql&lt;/p&gt;
+
+&lt;p&gt;connect to postgre while on local: sudo -u postgres psql&lt;/p&gt;
+
+&lt;p&gt;view all users \du&lt;/p&gt;
+
+&lt;p&gt;give root user superuser priv: ALTER USER root SUPERUSER CREATEDB;&lt;/p&gt;
+
+&lt;p&gt;allow postgres to listen to all connections:&lt;/p&gt;
+
+&lt;h6 id=&quot;open-up-remote-access&quot;&gt;Open up remote access&lt;/h6&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nano /etc/postgresql/9.5/main/pg_hba.conf
+
+host    all             all             all                     md5
+
+sudo nano /etc/postgresql/9.5/main/postgresql.conf
+
+listen_addresses=&#39;*&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h6 id=&quot;restart-nginx&quot;&gt;Restart nginx&lt;/h6&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo /etc/init.d/nginx restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h6 id=&quot;restart-postgres&quot;&gt;Restart postgres&lt;/h6&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo /etc/init.d/postgresql reload
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h6 id=&quot;dump-into-postgres&quot;&gt;Dump into postgres&lt;/h6&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;psql -U \[user name\] -h \[ip addr\] \[database name\] &amp;lt; \[file name\]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Fri, 29 Jul 2016 14:13:48 -0500</pubDate>
+        <link>http://yourdomain.com/drupal/postgresql/vagrant/2016/07/29/postgres-pain-in-ass-0.02.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/drupal/postgresql/vagrant/2016/07/29/postgres-pain-in-ass-0.02.html</guid>
+        
+        
+        <category>Drupal</category>
+        
+        <category>postgresql</category>
+        
+        <category>vagrant</category>
+        
+      </item>
+    
+      <item>
+        <title>Welcome to Jekyll!</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 25 Jul 2016 14:13:48 -0500</pubDate>
+        <link>http://yourdomain.com/jekyll/update/2016/07/25/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/jekyll/update/2016/07/25/welcome-to-jekyll.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Heroku Drupal</title>
+        <description>&lt;h2 id=&quot;using-the-lightning-distro-of-drupal-8-with-heroku&quot;&gt;Using the Lightning Distro of Drupal 8 with Heroku&lt;/h2&gt;
+&lt;p&gt;#### 0.01&lt;/p&gt;
+
+&lt;p&gt;For a new project, I decided to use &lt;a href=&quot;http://www.acquia.com/&quot;&gt;Acquia’s&lt;/a&gt; &lt;a href=&quot;https://github.com/acquia/lightning-project&quot;&gt;“Lightning” distribution&lt;/a&gt; of &lt;a href=&quot;http://github.com/drupal/drupal&quot;&gt;Drupal 8&lt;/a&gt;. The requirements for this project were not well defined at any stage and have continually shifted. At this point, the client has decided that &lt;a href=&quot;https://www.heroku.com&quot;&gt;Heroku&lt;/a&gt; would be the best hosting option for them. I have set up a free Heroku installation&lt;/p&gt;
+
+&lt;p&gt;The first steps to work with Heroku was to install the &lt;a href=&quot;https://toolbelt.heroku.com/&quot;&gt;Heroku Toolbelt&lt;/a&gt;. After creating a free account with Heroku, I then logged in through the terminal.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 25 Jul 2016 14:13:48 -0500</pubDate>
+        <link>http://yourdomain.com/drupal/heroku/2016/07/25/heroku-drupal-0.01.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/drupal/heroku/2016/07/25/heroku-drupal-0.01.html</guid>
+        
+        
+        <category>Drupal</category>
+        
+        <category>Heroku</category>
+        
+      </item>
+    
+  </channel>
+</rss>
