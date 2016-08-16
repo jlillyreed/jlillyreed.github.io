@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Why do all ORMs hurt"
-date:   2016-07-29 14:13:48 -0500
+date:   2016-08-16 11:55:48 -0500
 categories: Drupal postgresql ORM
 ---
 ## Doctrine, you aren't special
