@@ -25,6 +25,14 @@ These values can then be used in the settings array in the following way:
       'driver' => 'pgsql',
   ];
 
+In order to use a database dump in heroku, the dump must be put in a public space, which heroku can then reach out to in order to pull it into the instance.
+
+  heroku pg:backups:restore 'http://<database dump location>' HEROKU_POSTGRESQL_<color>_URL
+
+Note: Heroku assumes that the pg_dump was done using the flag "--format=c". It will not accept a sql dump otherwise.
+
+---
+
 Nginx does not use .htaccess. In order to get rewrites to work, you must have a rewrite.conf file. An example of an nginx rewrite.conf file is:
 
   server_name <server dns>;
