@@ -1,0 +1,62 @@
+---
+layout: post
+title:  "Making that Heroku Push"
+date:   2016-12-12 11:04:00 -0500
+categories: Heroku, git
+---
+## Making that Heroku Push
+#### 1.0
+
+Database credentials are pulled from the environment. In Drupal 8 get the settings from the environment via:
+
+  $_ENV["HEROKU_POSTGRESQL_<color>_URL"]
+
+These values can then be used in the settings array in the following way:
+
+  $db = parse_url($_ENV["HEROKU_POSTGRESQL_BLUE_URL"]);
+  $databases['default']['default'] = [
+      'database' => trim($db['path'], '/'),
+      'username' => $db['user'],
+      'password' => $db['pass'],
+      'host' => $db['host'],
+      'prefix' => 'drupal_',
+      'port' => '5432',
+      'namespace' => 'Drupal\\Core\\Database\\Driver\\pgsql',
+      'driver' => 'pgsql',
+  ];
+
+Nginx does not use .htaccess. In order to get rewrites to work, you must have a rewrite.conf file. An example of an nginx rewrite.conf file is:
+
+  server_name <server dns>;
+
+  access_log off;
+  fastcgi_param SCRIPT_NAME $fastcgi_script_name;	
+
+  location ~ \..*/.*\.php$ {
+    return 403;
+  }
+
+  location ~ (^|/)\. {
+    return 403;
+  }
+
+  location / {
+    try_files $uri @rewrite;
+  }
+
+  location @rewrite {
+    rewrite ^ /index.php;
+  }
+
+  location ~ ^/sites/.*/files/imagecache/ {
+    try_files $uri @rewrite;
+  }
+
+  location ~ ^/sites/.*/files/styles/ {
+    try_files $uri @rewrite;
+  }
+
+  location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+    expires max;
+    log_not_found off;
+  }
