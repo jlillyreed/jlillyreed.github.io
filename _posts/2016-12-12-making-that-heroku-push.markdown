@@ -60,3 +60,15 @@ Nginx does not use .htaccess. In order to get rewrites to work, you must have a 
     expires max;
     log_not_found off;
   }
+
+install heroku cli: https://devcenter.heroku.com/articles/heroku-cli
+
+useful heroku commands:
+
+  git push heroku - pushes the repo to the server and deploys all the files
+
+  heroku logs - outputs log file to debug issues
+
+  heroku ps - shows all applications in the heroku instance
+
+  heroku run bash - logs user into the actual heroku server (via ssh)
