@@ -7,6 +7,9 @@ categories: Heroku, git
 ## Making that Heroku Push
 #### 1.0
 
+I found that integrating Drupal 8 with Heroku takes a bit of effort, but is not overwhelming. The first step is to realize that Heroku is not a host like all other hosts people might be used to.
+Heroku is basically a 
+
 Database credentials are pulled from the environment. In Drupal 8 get the settings from the environment via:
 
   $_ENV["HEROKU_POSTGRESQL_<color>_URL"]
@@ -27,7 +30,7 @@ These values can then be used in the settings array in the following way:
 
 In order to use a database dump in heroku, the dump must be put in a public space, which heroku can then reach out to in order to pull it into the instance.
 
-  heroku pg:backups:restore 'http://<database dump location>' HEROKU_POSTGRESQL_<color>_URL
+  heroku pg:backups:restore 'http://<database dump location>' <database alias (sometimes includes colors!)>
 
 Note: Heroku assumes that the pg_dump was done using the flag "--format=c". It will not accept a sql dump otherwise.
 
